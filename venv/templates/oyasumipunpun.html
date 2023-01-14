@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block title %}Contact{% endblock %}
+{% block base %}
+<link rel="stylesheet" href="{{url_for('static' ,filename='reader.css')}}">
+<!-- Breadcrumb Area Start -->
+<section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(static/img/bg-img/38.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content text-center">
+                    <h2 class="page-title">Gallery</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Area End -->
+
+<div class="chnav ctop">
+    <form class="form-inline" method="POST" action="{{ url_for('oyasumipunpun') }}">
+    <span class="selector slc l">
+        <div class="nvx">
+            <select name="chapter" id="chapter"  onchange="this.form.submit()">
+                <option value="" disabled="disabled" selected>Select Chapter</option>
+                {% for i in range(1, 5)%}
+                <option value="{{i}}">Volume {{i}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </span>
+    </form>
+    <span class="navlef">
+        <span class="npv r">
+            <div class="nextprev">
+                <button class="ch-prev-btn disabled" onclick="prev()" rel="prev">
+                    <i class="fas fa-angle-left"></i> Prev
+                </button>
+                <button onclick="next()" class="ch-next-btn" rel="next">
+                    Next <i class="fas fa-angle-right"></i>
+                </button>
+            </div>
+        </span>
+        <span class="amob nodlx">
+        </span>
+    </span>
+</div>
+<div id="imgloader" style="height: auto !important; display: flex; justify-content: center; box-sizing: border-box; margin-left: auto; margin-right: auto;">
+<ul>
+    {% for i in range(0, 40)%}
+    <li><img style="max-width: 600px; margin-left: auto; margin-right: auto;" id="chap" src="/static/cbz/oyasumipunpun/volume{{volno}}/vol{{volno}}({{i}}).png" onerror="this.style.display = 'none'"/></li>
+    {%endfor%}
+</ul>
+</div>
+
+<div class="chnav ctop">
+    <form class="form-inline" method="POST" action="{{ url_for('oyasumipunpun') }}">
+    <span class="selector slc l">
+        <div class="nvx">
+            <select name="chapter" id="chapter"  onchange="this.form.submit()">
+                <option value="" disabled="disabled" selected>Select Chapter</option>
+                {% for i in range(1, 5)%}
+                <option value="{{i}}">Volume {{i}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </span>
+    </form>
+    <span class="navlef">
+        <span class="npv r">
+            <div class="nextprev">
+                <button class="ch-prev-btn disabled" onclick="prev()" rel="prev">
+                    <i class="fas fa-angle-left"></i> Prev
+                </button>
+                <button onclick="next()" class="ch-next-btn" rel="next">
+                    Next <i class="fas fa-angle-right"></i>
+                </button>
+            </div>
+        </span>
+        <span class="amob nodlx">
+        </span>
+    </span>
+</div>
+<script>
+    let str = '{{volno}}';
+    var newvar= parseInt(str,10);
+</script>
+{% endblock %}
