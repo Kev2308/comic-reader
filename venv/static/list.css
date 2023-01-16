@@ -14,7 +14,7 @@ blockquote,
 q {
     margin: 5px 0;
     quotes: none;
-    background: #252230;
+    background: #ffffff;
     border-left: 3px solid #353535;
     padding: 5px 10px
 }
@@ -75,17 +75,6 @@ img {
 
 .clear {
     clear: both
-}
-
-body {
-    background: #16151d;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #b8b8b8;
-    margin: 0 auto;
-    font-family: fira sans, sans-serif;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important
 }
 
 .strip {

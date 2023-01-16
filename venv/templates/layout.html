@@ -15,6 +15,26 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{url_for('static' ,filename='style.css')}}">
+    <script>
+        const toggleSwitch = document.querySelector('.theme-slider input[type="checkbox"]');
+
+        /* Function to change theme */
+        function switchTheme(e) {
+
+            /* Once checkbox is checked default theme change to dark */
+            if (e.target.checked) {
+                document.documentElement.setAttribute('theme', 'dark');
+            }
+
+            /* While page in dark mode and checkbox is
+            checked then theme back to change light*/
+            else {
+                document.documentElement.setAttribute('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
 
 </head>
 
@@ -32,10 +52,12 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <!-- Close -->
-                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="ti-close"></i></button>
+                        <button type="button" class="btn close-btn" data-dismiss="modal"><i
+                                class="ti-close"></i></button>
                         <!-- Form -->
                         <form action="index.html" method="post">
-                            <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
+                            <input type="search" name="top-search-bar" class="form-control"
+                                placeholder="Search and hit enter...">
                             <button type="submit">Search</button>
                         </form>
                     </div>
@@ -54,7 +76,9 @@
                     <nav class="classy-navbar justify-content-between" id="alimeNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="/"><img src="{{url_for('static' ,filename='/img/logo/omniscient-reader-logo-zip-file/png/logo-no-background.png')}}" style="width:150px;height:auto;" alt=""></a>
+                        <a class="nav-brand" href="/"><img
+                                src="{{url_for('static' ,filename='/img/logo/omniscient-reader-logo-zip-file/png/logo-no-background.png')}}"
+                                style="width:150px;height:auto;" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -70,6 +94,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul id="nav">
+                                    
                                     <li class="active"><a href="/">Home</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
@@ -87,7 +112,7 @@
                                                     <li><a href="/spyxfamily">- SpyxFamily</a></li>
                                                     <li><a href="/tokyoghoul">- Tokyo Ghoul</a></li>
                                                     <li><a href="/bleach">- Bleach</a></li>
-                                                
+
                                                 </ul>
                                             </li>
                                         </ul>
@@ -99,7 +124,8 @@
                                 </ul>
 
                                 <!-- Search Icon -->
-                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i></div>
+                                <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i
+                                        class="ti-search"></i></div>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -190,7 +216,7 @@
         </div>
     </section>
     <!-- Follow Area End -->
-    
+
     <!-- Footer Area Start -->
     <footer class="footer-area">
         <div class="container">
@@ -200,8 +226,12 @@
                         <!-- Copywrite Text -->
                         <div class="copywrite-text">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
                         <!-- Footer Logo -->
                         <div class="footer-logo">
