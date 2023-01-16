@@ -8,7 +8,7 @@
     border-radius: 10px;
     text-align: center;
     @include transition-duration(500ms);
-    background-color: $white;
+    background-color: rgb(229, 20, 229);
 
     .member-thumb {
         margin: 0 auto 40px;
