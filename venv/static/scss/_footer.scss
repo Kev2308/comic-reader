@@ -9,14 +9,14 @@
 
         p {
             margin-bottom: 0;
-            color: $heading;
+            color: $white;
 
             @media #{$breakpoint-xs} {
                 font-size: 12px;
             }
 
             a {
-                color: $primary;
+                color: $white;
                 font-weight: 400;
 
                 @media #{$breakpoint-xs} {
@@ -30,7 +30,7 @@
         a {
             img {
                 @media #{$breakpoint-xs} {
-                    max-width: 50px;
+                    max-width: 70px;
                 }
             }
         }
@@ -38,7 +38,7 @@
 
     .social-info {
         a {
-            color: $heading;
+            color: white;
             font-size: 16px;
             margin-right: 20px;
 
