@@ -4,6 +4,9 @@
     {% block base %}
     <!-- Welcome Area Start -->
     <section class="welcome-area">
+        {% if message is defined and message %}
+		<div class="alert alert-warning">{{ message }}</div>
+		{% endif %}
         <div class="welcome-slides owl-carousel">
             <!-- Single Slide -->
             <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url('/static/img/bg-img/sololeveling.png');">

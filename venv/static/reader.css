@@ -130,9 +130,13 @@
     margin-bottom: 20px
 }
 
-.nexticon {
+.fas fa-angle-right {
     font-family: "fontAwesome";
     content: "\f105"
+}
+.fas fa-angle-left{
+    font-family: "fontAwesome";
+    content: "\f104"
 }
 
 .previcon {
