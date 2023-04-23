@@ -1,15 +1,22 @@
 from flask import Flask, render_template, url_for, request, session, redirect  ;
-import re, sqlite3
+import re
 app = Flask(__name__)
-
+import pymysql
   
   
 app.secret_key = 'xyzsdfg'
   
 
 def get_db_connection():
-    conn = sqlite3.connect('database.db')
-    conn.row_factory = sqlite3.Row
+    
+
+    conn = pymysql.connect(
+    host= 'mydb1.cm8y7z0ycta2.ap-northeast-1.rds.amazonaws.com',
+    port= 3306,
+    user= 'admin',
+    password= 'Chief#143',
+    db= 'userdata'
+    )
     return conn
 
 
@@ -22,12 +29,10 @@ def login():
         password = request.form['password']
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM user WHERE email = ? AND password = ?', (email, password))
+        cursor.execute('SELECT * FROM user WHERE email = %s AND password = %s', (email, password))
         user = cursor.fetchone()
         if user:
             session['loggedin'] = True
-            session['name'] = user['name']
-            session['email'] = user['email']
             message = 'Logged in successfully !'
             return render_template('index.html', message = message)
         else:
@@ -50,7 +55,7 @@ def register():
         email = request.form['email']
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM user WHERE email = ?', (email,))
+        cursor.execute('SELECT * FROM user WHERE email = %s',(email,))
         account = cursor.fetchone()
         if account:
             message = 'Account already exists !'
@@ -59,7 +64,7 @@ def register():
         elif not userName or not password or not email:
             message = 'Please fill out the form !'
         else:
-            cursor.execute('INSERT INTO user VALUES (?, ?, ?)', (userName, email, password))
+            cursor.execute('INSERT INTO user VALUES (%s, %s, %s)', (userName, email, password))
             conn.commit()
             message = 'You have successfully registered !'
     elif request.method == 'POST':
